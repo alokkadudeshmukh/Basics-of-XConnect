@@ -1,0 +1,44 @@
+﻿@inherits Glass.Mapper.Sc.Web.Mvc.GlassView<XConnect.Demo.Contacts.Web.Models.CreateContactViewModel>
+
+<h1>@Model.PageTitle</h1>
+    <p>@Model.PageIntro</p>
+    @using (Html.BeginForm("CreateContacts", "Page", FormMethod.Post))
+        {
+    <table>
+        <tr>
+            <td>First Name:</td>
+            <td>
+                @Html.TextBoxFor(x => x.FormFirstName, new { @class = "input-text", @placeholder = "First Name" })
+            </td>
+        </tr>
+        <tr>
+            <td>Last Name:</td>
+            <td>
+                @Html.TextBoxFor(x => x.FormLastName, new { @class = "input-text", @placeholder = "Last Name" })
+            </td>
+        </tr>
+        <tr>
+            <td>Email Address:</td>
+            <td>
+                @Html.TextBoxFor(x => x.FormEmailAddress, new { @class = "input-text", @placeholder = "Email Address" })
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <input type="submit" id="btn_submit" value="Create" />
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                @if(Model.OperationStatus=="created")
+                {
+                    <div>Awesome!! Contact has been added!!</div>
+                }
+                else if(Model.OperationStatus=="false")
+                {
+                    <div>Something went wrong!! try again....</div>
+                }
+            </td>
+        </tr>
+    </table>
+    }

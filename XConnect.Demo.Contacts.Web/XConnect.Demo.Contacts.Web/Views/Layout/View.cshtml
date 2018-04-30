@@ -1,0 +1,35 @@
+﻿@using Sitecore.Mvc
+@using Sitecore.Mvc.Analytics.Extensions
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title></title>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,300italic,400italic,600italic,700italic,300,600,700,800" rel="stylesheet" type="text/css" />
+    <link href="/default.css" rel="stylesheet" />
+</head>
+
+</head>
+<body>
+
+    <div id="MainPanel">
+
+        <div id="CenterColumn">
+
+            <div id="InnerCenter">
+                <div id="Header">
+                    @Html.Sitecore().Placeholder("Header")
+                    <img src="-/media/Default Website/sc_logo.ashx" alt="Sitecore" id="scLogo" />
+                </div>
+                <div id="Content">
+                    @Html.Sitecore().Placeholder("Content")
+
+                </div>
+                @Html.Sitecore().Placeholder("Footer")
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
