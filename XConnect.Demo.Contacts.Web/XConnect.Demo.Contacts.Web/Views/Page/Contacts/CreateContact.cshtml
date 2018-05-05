@@ -1,44 +1,87 @@
 ﻿@inherits Glass.Mapper.Sc.Web.Mvc.GlassView<XConnect.Demo.Contacts.Web.Models.CreateContactViewModel>
 
-<h1>@Model.PageTitle</h1>
-    <p>@Model.PageIntro</p>
-    @using (Html.BeginForm("CreateContacts", "Page", FormMethod.Post))
-        {
-    <table>
-        <tr>
-            <td>First Name:</td>
-            <td>
-                @Html.TextBoxFor(x => x.FormFirstName, new { @class = "input-text", @placeholder = "First Name" })
-            </td>
-        </tr>
-        <tr>
-            <td>Last Name:</td>
-            <td>
-                @Html.TextBoxFor(x => x.FormLastName, new { @class = "input-text", @placeholder = "Last Name" })
-            </td>
-        </tr>
-        <tr>
-            <td>Email Address:</td>
-            <td>
-                @Html.TextBoxFor(x => x.FormEmailAddress, new { @class = "input-text", @placeholder = "Email Address" })
-            </td>
-        </tr>
-        <tr>
-            <td colspan="2">
-                <input type="submit" id="btn_submit" value="Create" />
-            </td>
-        </tr>
-        <tr>
-            <td colspan="2">
-                @if(Model.OperationStatus=="created")
-                {
-                    <div>Awesome!! Contact has been added!!</div>
+<script type="text/javascript" src="~/scripts/jquery.unobtrusive-ajax.min.js"></script>
+<!-- Container (Contact Section) -->
+<div id="contact" class="bg-1 slideanim">
+    <div class="container">
+        <h3 class="text-center">CONTACT</h3>
+        <p class="text-center"><em>We love our fans!</em></p>
+        @*@using (Html.BeginForm("CreateContacts", "Page", FormMethod.Post))*@
+        @*@using (Ajax.BeginForm("CreateContacts", "Page", null, new AjaxOptions { HttpMethod = "POST", OnSuccess = "ContactSuccess" }, new { id = "CreateContactForm", enctype = "multipart/form-data" }))
+        {*@
+        <form id="CreateContactForm">
+            <div class="row">
+                <div class="col-md-4">
+                    <p>Fan? Drop a note.</p>
+                    <p><span class="glyphicon glyphicon-map-marker"></span>Vadodara, Gujarat, India</p>
+                    <p><span class="glyphicon glyphicon-phone"></span>Phone: 0265 2323272</p>
+                    <p><span class="glyphicon glyphicon-envelope"></span>Email: akadudeshmukh@horizontalintegration.com</p>
+                </div>
+                <div class="col-md-8">
+                    <div class="row">
+                        <div class="col-sm-6 form-group">
+                            @*<input class="form-control" id="fname" name="fname" placeholder="First Name" type="text" required>*@
+                            @Html.TextBoxFor(x => x.FormFirstName, new { @class = "input-text form-control", @placeholder = "First Name" })
+                        </div>
+                        <div class="col-sm-6 form-group">
+                            @*<input class="form-control" id="lname" name="lname" placeholder="Last Name" type="text" required>*@
+                            @Html.TextBoxFor(x => x.FormLastName, new { @class = "input-text form-control", @placeholder = "Last Name" })
+                        </div>
+                        <div class="col-sm-12 form-group">
+                            @*<input class="form-control" id="jtitle" name="jtitle" placeholder="Job Title" type="text" required>*@
+                            @Html.TextBoxFor(x => x.FormJobTitle, new { @class = "input-text form-control", @placeholder = "Job Title" })
+                        </div>
+                        <div class="col-sm-12 form-group">
+                            @*<input class="form-control" id="email" name="email" placeholder="Email" type="email" required>*@
+                            @Html.TextBoxFor(x => x.FormEmailAddress, new { @class = "input-text form-control", @placeholder = "Email Address" })
+                        </div>
+                        <div class="col-xs-12 form-group error-msg">
+                           @*Message will be appended from Javascript*@
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-md-12 form-group">
+                        <button class="btn pull-right" type="submit">Send</button>
+                    </div>
+                </div>
+                <br>
+            </div>
+            @*}*@
+        </form>
+    </div>
+</div>
+
+<script>
+
+ $(document).ready(function () {
+
+     $('#CreateContactForm').submit(function (e) {
+
+         var formData = new FormData(this);
+       
+        $.ajax({
+            url: '@Url.Action("CreateContacts", "Page")',
+            type: "POST",
+            dataType: "json",
+            contentType: "application/json; charset=utf-8",
+            data: formData,
+            contentType: false,
+            processData: false,
+            success: function (result) {
+                if (result.Message == "created") {
+                    $(".error-msg").append('<p class="success">Thank you for sharing your contact details!</p>');
                 }
-                else if(Model.OperationStatus=="false")
-                {
-                    <div>Something went wrong!! try again....</div>
+                else if (result.Message == "false") {
+                    $(".error-msg").append('<p style="color:red;">Something went wrong! Refresh the page and try again.</p>');
                 }
-            </td>
-        </tr>
-    </table>
-    }
+            },
+            error: function (result) {
+                alert("Something went wrong");
+            }
+        });
+        e.preventDefault();
+    });
+});
+</script>

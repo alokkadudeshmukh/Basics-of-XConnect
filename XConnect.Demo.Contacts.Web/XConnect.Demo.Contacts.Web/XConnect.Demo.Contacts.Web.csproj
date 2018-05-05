@@ -191,16 +191,28 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Global.asax" />
+    <Content Include="images\alok.jpg" />
+    <Content Include="images\chirayu.jpg" />
+    <Content Include="images\favicon.ico" />
+    <Content Include="images\laxmi-vilas.jpg" />
+    <Content Include="images\pixels-dark-right.png" />
+    <Content Include="images\pixels-light-left.png" />
+    <Content Include="images\sitecore-banner.jpg" />
+    <Content Include="images\sugcon-india.jpg" />
     <Content Include="scripts\ai.0.15.0-build58334.js" />
     <Content Include="scripts\ai.0.15.0-build58334.min.js" />
+    <Content Include="images\.DS_Store" />
     <None Include="scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="scripts\jquery-1.10.2.js" />
     <Content Include="scripts\jquery-1.10.2.min.js" />
     <None Include="scripts\jquery.validate-vsdoc.js" />
+    <Content Include="scripts\jquery.unobtrusive-ajax.js" />
+    <Content Include="scripts\jquery.unobtrusive-ajax.min.js" />
     <Content Include="scripts\jquery.validate.js" />
     <Content Include="scripts\jquery.validate.min.js" />
     <Content Include="scripts\jquery.validate.unobtrusive.js" />
     <Content Include="scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="stylessheets\main.css" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>

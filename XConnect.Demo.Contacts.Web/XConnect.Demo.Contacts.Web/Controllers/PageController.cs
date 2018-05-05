@@ -21,7 +21,7 @@ namespace XConnect.Demo.Contacts.Web.Controllers
     {
         #region Properties
         private ISitecoreContext _context { get; set; }
-        public static string contactIdentifierPrefix = "demo";
+        public static string contactIdentifierPrefix = "";
         #endregion
         // GET: Page
         public ActionResult Index()
@@ -51,20 +51,22 @@ namespace XConnect.Demo.Contacts.Web.Controllers
         }
 
         [HttpPost]
-        public ActionResult CreateContacts(CreateContactViewModel contactVM)
+        public JsonResult CreateContacts(CreateContactViewModel contactVM)
         {
             // TriggerProfileKey("ProfileNAME", "ProfileKEY", 10);
            contactVM= RegisterContact(contactVM);
-            return View("~/Views/Page/Contacts/CreateContact.cshtml",contactVM);
+            // return View("~/Views/Page/Contacts/CreateContact.cshtml",contactVM);
+            return Json(new { Message = contactVM.OperationStatus }, JsonRequestBehavior.AllowGet);
             
         }
 
         public static CreateContactViewModel RegisterContact(CreateContactViewModel contactVM)
         {
             CreateContactViewModel conctVMLocal = contactVM;
-            var offlineGoal = Guid.Parse("A9948719-E6E4-46D2-909B-3680E724ECE9");//offline goal - KioskSubmission goal
-            var channelId = Guid.Parse("3FC61BB8-0D9F-48C7-9BBD-D739DCBBE032"); // /sitecore/system/Marketing Control Panel/Taxonomies/Channel/Offline/Store/Enter store - offline enter storl channel
-
+            // var offlineGoal = Guid.Parse("A9948719-E6E4-46D2-909B-3680E724ECE9");//offline goal - KioskSubmission goal          
+            // var channelId = Guid.Parse("3FC61BB8-0D9F-48C7-9BBD-D739DCBBE032"); // /sitecore/system/Marketing Control Panel/Taxonomies/Channel/Offline/Store/Enter store - offline enter storl channel
+            var goal = Guid.Parse("D59F316C-8C87-44A9-8347-E66C5A996CF5"); //online goal- directsitesubmission goal
+            var channelId = Guid.Parse("B418E4F2-1013-4B42-A053-B6D4DCA988BF"); // /sitecore/system/Marketing Control Panel/Taxonomies/Channel/Online/Direct/Direct - online direct channel
             CertificateWebRequestHandlerModifierOptions options =
                CertificateWebRequestHandlerModifierOptions.Parse("StoreName=My;StoreLocation=LocalMachine;FindType=FindByThumbprint;FindValue=587d948806e57cf511b37a447a2453a02dfd3686");
 
@@ -91,7 +93,7 @@ namespace XConnect.Demo.Contacts.Web.Controllers
             using (Sitecore.XConnect.Client.XConnectClient client = new XConnectClient(config))
             {
                 bool isExist = false;
-                Contact extContact = client.Get<Contact>(new IdentifiedContactReference("twitter", contactIdentifierPrefix + contactVM.FormEmailAddress), new ContactExpandOptions(new string[] { PersonalInformation.DefaultFacetKey, EmailAddressList.DefaultFacetKey }));
+                Contact extContact = client.Get<Contact>(new IdentifiedContactReference("HIxConnect", contactIdentifierPrefix + contactVM.FormEmailAddress), new ContactExpandOptions(new string[] { PersonalInformation.DefaultFacetKey, EmailAddressList.DefaultFacetKey }));
                 if (extContact != null)
                 {
                     isExist = true;
@@ -102,7 +104,7 @@ namespace XConnect.Demo.Contacts.Web.Controllers
                     // Identifier for a 'known' contact
                     var identifier = new ContactIdentifier[]
                     {
-                                     new ContactIdentifier("twitter",contactIdentifierPrefix + contactVM.FormEmailAddress, ContactIdentifierType.Known)
+                                     new ContactIdentifier("HIxConnect",contactIdentifierPrefix + contactVM.FormEmailAddress, ContactIdentifierType.Known)
                     };
                     Contact knownContact = null;
                     if (isExist)
@@ -120,7 +122,7 @@ namespace XConnect.Demo.Contacts.Web.Controllers
 
                     personalInfoFacet.FirstName = contactVM.FormFirstName;
                     personalInfoFacet.LastName = contactVM.FormLastName;
-                    personalInfoFacet.JobTitle = "Programmer Writer";
+                    personalInfoFacet.JobTitle = contactVM.FormJobTitle;
 
                     client.SetFacet<PersonalInformation>(knownContact, PersonalInformation.DefaultFacetKey, personalInfoFacet);
 
@@ -132,7 +134,7 @@ namespace XConnect.Demo.Contacts.Web.Controllers
                         interaction = new Interaction(knownContact, InteractionInitiator.Contact, channelId, "");
 
                         // Add events - all interactions must have at least one event
-                        var xConnectEvent = new Goal(offlineGoal, DateTime.UtcNow);
+                        var xConnectEvent = new Goal(goal, DateTime.UtcNow);
                         interaction.Events.Add(xConnectEvent);
 
                     }
@@ -146,7 +148,7 @@ namespace XConnect.Demo.Contacts.Web.Controllers
 
                     IpInfo ipInfo = new IpInfo("127.0.0.1");
 
-                    ipInfo.BusinessName = "Kiosk Desk";
+                    ipInfo.BusinessName = "WebSiteSitecore";
 
                     client.SetFacet<IpInfo>(interaction, IpInfo.DefaultFacetKey, ipInfo);
 

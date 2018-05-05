@@ -46,7 +46,26 @@ namespace ContactsConsoleApp
             try
             {
                 cfg.Initialize(); // cfg.InitializeAsync();
+                Console.WindowWidth = 160;
 
+                var arr1 = new[]
+               {
+                            @"                                                                                ",
+                            @" __    __  _____                                                                ",
+                            @"\  \  \ \ \     \                                                               ",
+                            @"|##|  |## |######                                                               ",
+                            @"|##|  |##  \ ##                                                                 ",
+                            @"|##| _|##   |##                                                                 ",
+                            @"|########|  |##                                                                 ",
+                            @"|##|   ##   |##|                                                                ",
+                            @"|##|   ##   |## \                                                               ",
+                            @"|##|   ## |######|                                                              "
+                        };
+                foreach (string line in arr1)
+                    Console.WriteLine(line);
+                Console.WriteLine();
+                Console.WriteLine();
+                Console.WriteLine();
                 // Print xConnect if configuration is valid
                 var arr = new[]
                 {
@@ -60,7 +79,7 @@ namespace ContactsConsoleApp
                             @"|  $$ \$$\ \$$    $$ \$$    $$| $$  | $$| $$  | $$ \$$     \ \$$     \   \$$  $$",
                             @" \$$   \$$  \$$$$$$   \$$$$$$  \$$   \$$ \$$   \$$  \$$$$$$$  \$$$$$$$    \$$$$ "
                         };
-                Console.WindowWidth = 160;
+               
                 foreach (string line in arr)
                     Console.WriteLine(line);
                 Console.WriteLine();
@@ -83,7 +102,7 @@ namespace ContactsConsoleApp
                 try
                 {
                     // Get a known contact
-                    IdentifiedContactReference reference = new IdentifiedContactReference("twitter", contactid);
+                    IdentifiedContactReference reference = new IdentifiedContactReference("HIxConnect", contactid);
 
                     Contact existingContact = await client.GetAsync<Contact>(reference, new ContactExpandOptions(new string[] { PersonalInformation.DefaultFacetKey,EmailAddressList.DefaultFacetKey }));
                   

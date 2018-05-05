@@ -22,6 +22,15 @@ namespace KioskContact {
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
+        /// captureimage control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlImage captureimage;
+        
+        /// <summary>
         /// ddTitle control.
         /// </summary>
         /// <remarks>
@@ -94,22 +103,13 @@ namespace KioskContact {
         protected global::System.Web.UI.WebControls.DropDownList ddLanguage;
         
         /// <summary>
-        /// btnCreate control.
+        /// ltrl_status control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnCreate;
-        
-        /// <summary>
-        /// lbl_status control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbl_status;
+        protected global::System.Web.UI.WebControls.Literal ltrl_status;
         
         /// <summary>
         /// hdnbase control.
@@ -121,12 +121,12 @@ namespace KioskContact {
         protected global::System.Web.UI.HtmlControls.HtmlInputHidden hdnbase;
         
         /// <summary>
-        /// captureimage control.
+        /// btnCreate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlImage captureimage;
+        protected global::System.Web.UI.WebControls.Button btnCreate;
     }
 }

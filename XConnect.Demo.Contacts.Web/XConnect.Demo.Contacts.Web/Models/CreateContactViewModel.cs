@@ -11,6 +11,7 @@ namespace XConnect.Demo.Contacts.Web.Models
         public string PageIntro { get; set; }
         public string FormFirstName { get; set; }
         public string FormLastName { get; set; }
+        public string FormJobTitle { get; set; }
         public string FormEmailAddress { get; set; }
         public string OperationStatus { get; set; }
         

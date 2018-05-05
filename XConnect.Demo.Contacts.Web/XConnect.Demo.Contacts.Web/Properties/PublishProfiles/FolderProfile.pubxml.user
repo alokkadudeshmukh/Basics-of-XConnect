@@ -172,16 +172,43 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>04/14/2018 05:55:47</publishTime>
     </File>
     <File Include="bin/XConnect.Demo.Contacts.Web.dll">
-      <publishTime>04/25/2018 15:50:41</publishTime>
+      <publishTime>05/02/2018 13:06:48</publishTime>
     </File>
     <File Include="bin/XConnect.Demo.Contacts.Web.pdb">
-      <publishTime>04/25/2018 15:50:41</publishTime>
+      <publishTime>05/02/2018 13:06:48</publishTime>
     </File>
     <File Include="Global.asax">
       <publishTime>04/14/2018 05:55:47</publishTime>
     </File>
+    <File Include="images/.DS_Store">
+      <publishTime>04/30/2018 13:55:36</publishTime>
+    </File>
+    <File Include="images/alok.jpg">
+      <publishTime>04/30/2018 12:43:42</publishTime>
+    </File>
+    <File Include="images/chirayu.jpg">
+      <publishTime>04/30/2018 12:21:16</publishTime>
+    </File>
+    <File Include="images/favicon.ico">
+      <publishTime>04/30/2018 13:37:10</publishTime>
+    </File>
+    <File Include="images/laxmi-vilas.jpg">
+      <publishTime>04/27/2018 10:15:40</publishTime>
+    </File>
+    <File Include="images/pixels-dark-right.png">
+      <publishTime>04/25/2017 05:38:56</publishTime>
+    </File>
+    <File Include="images/pixels-light-left.png">
+      <publishTime>04/11/2017 14:32:20</publishTime>
+    </File>
+    <File Include="images/sitecore-banner.jpg">
+      <publishTime>04/30/2018 10:26:22</publishTime>
+    </File>
+    <File Include="images/sugcon-india.jpg">
+      <publishTime>04/27/2018 09:44:46</publishTime>
+    </File>
     <File Include="packages.config">
-      <publishTime>04/23/2018 11:40:18</publishTime>
+      <publishTime>05/01/2018 09:21:06</publishTime>
     </File>
     <File Include="scripts/ai.0.15.0-build58334.js">
       <publishTime>04/14/2018 05:56:02</publishTime>
@@ -198,6 +225,12 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="scripts/jquery-1.10.2.min.map">
       <publishTime>04/14/2018 07:31:26</publishTime>
     </File>
+    <File Include="scripts/jquery.unobtrusive-ajax.js">
+      <publishTime>05/01/2018 09:21:06</publishTime>
+    </File>
+    <File Include="scripts/jquery.unobtrusive-ajax.min.js">
+      <publishTime>05/01/2018 09:21:06</publishTime>
+    </File>
     <File Include="scripts/jquery.validate.js">
       <publishTime>04/14/2018 07:31:29</publishTime>
     </File>
@@ -210,17 +243,20 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="scripts/jquery.validate.unobtrusive.min.js">
       <publishTime>04/14/2018 07:31:30</publishTime>
     </File>
+    <File Include="stylessheets/main.css">
+      <publishTime>05/01/2018 10:05:15</publishTime>
+    </File>
     <File Include="Views/Layout/View.cshtml">
-      <publishTime>04/23/2018 11:36:45</publishTime>
+      <publishTime>05/01/2018 10:06:55</publishTime>
     </File>
     <File Include="Views/Page/Contacts/CreateContact.cshtml">
-      <publishTime>04/23/2018 12:04:39</publishTime>
+      <publishTime>05/01/2018 09:48:49</publishTime>
     </File>
     <File Include="Views/web.config">
       <publishTime>04/14/2018 05:55:47</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>04/23/2018 12:01:29</publishTime>
+      <publishTime>05/01/2018 10:05:25</publishTime>
     </File>
   </ItemGroup>
 </Project>
