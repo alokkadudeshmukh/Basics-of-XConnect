@@ -72,7 +72,7 @@ namespace KioskContact
         }
 
 
-        public void Example4()
+        public void createUpdateContact()
         {
             var offlineGoal = Guid.Parse("A9948719-E6E4-46D2-909B-3680E724ECE9");//offline goal - KioskSubmission goal
             var channelId = Guid.Parse("3FC61BB8-0D9F-48C7-9BBD-D739DCBBE032"); // /sitecore/system/Marketing Control Panel/Taxonomies/Channel/Offline/Store/Enter store - offline enter storl channel
@@ -206,7 +206,7 @@ namespace KioskContact
             }
         }
         //Only Creates new contact
-        public void Example3()
+        public void createContact()
         {
             //Goals and Channels to tracke the event - interaction
             var offlineGoal = Guid.Parse("A9948719-E6E4-46D2-909B-3680E724ECE9");//offline goal - KioskSubmission goal
@@ -389,7 +389,7 @@ namespace KioskContact
 
         protected void btnCreate_Click(object sender, EventArgs e)
         {
-            Example4();
+            createUpdateContact();
         }
 
         protected void btn_capture_Click(object sender, EventArgs e)
