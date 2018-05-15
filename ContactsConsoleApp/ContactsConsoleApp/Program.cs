@@ -108,17 +108,22 @@ namespace ContactsConsoleApp
                   
 
                     PersonalInformation existingPsnlContactFacet = existingContact.GetFacet<PersonalInformation>(PersonalInformation.DefaultFacetKey);
-
+                    Console.WriteLine();
+                    Console.WriteLine();
+                    Console.WriteLine("-=-=-=-=-=-=-=-=-Contact Details-=-=-=-=-=-=");
+                    Console.WriteLine();
                     Console.WriteLine("Contact ID: " + existingContact.Id.ToString());
+                    Console.WriteLine();
                     Console.WriteLine("Contact Name: " + existingPsnlContactFacet.Title+" "+ existingPsnlContactFacet.FirstName +" "+ existingPsnlContactFacet.LastName);
+                    Console.WriteLine();
                     Console.WriteLine("Preferred Langauge: " + existingPsnlContactFacet.PreferredLanguage);
-
+                    Console.WriteLine();
                     EmailAddressList emailAddressListFacet = existingContact.GetFacet<EmailAddressList>(EmailAddressList.DefaultFacetKey);
                     if(emailAddressListFacet!=null)
                     {
-                        Console.Write("Email Address:" + emailAddressListFacet.PreferredEmail.SmtpAddress);
+                        Console.WriteLine("Email Address:" + emailAddressListFacet.PreferredEmail.SmtpAddress);
                     }
-
+                    Console.WriteLine("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=");
                     #region IP Information
                     IpInfo existingContactIPFacet = existingContact.GetFacet<IpInfo>(IpInfo.DefaultFacetKey);
                     if (existingContactIPFacet != null)
