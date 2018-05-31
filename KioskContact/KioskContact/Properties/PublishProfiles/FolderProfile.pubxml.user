@@ -55,10 +55,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>07/16/2013 20:06:22</publishTime>
     </File>
     <File Include="bin/KioskContact.dll">
-      <publishTime>05/02/2018 14:38:33</publishTime>
+      <publishTime>05/25/2018 07:02:48</publishTime>
     </File>
     <File Include="bin/KioskContact.pdb">
-      <publishTime>05/02/2018 14:38:33</publishTime>
+      <publishTime>05/25/2018 07:02:48</publishTime>
     </File>
     <File Include="bin/Microsoft.AI.Agent.Intercept.dll">
       <publishTime>11/30/2016 16:07:42</publishTime>
